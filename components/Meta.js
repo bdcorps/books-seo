@@ -22,9 +22,9 @@ const Meta = ({ title, keywords, description }) => {
 }
 
 Meta.defaultProps = {
-  title: "Webdev",
-  keywords: "webdev, programming",
-  description: "descirption"
+  title: "Bookify",
+  keywords: "books",
+  description: "Bookify provides access to 100+ hand-picked books for you to start learning new skills"
 }
 
 export default Meta
