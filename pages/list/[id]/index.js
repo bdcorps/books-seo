@@ -70,12 +70,10 @@ function tokenize(str) {
 
 export const getStaticProps = async (context) => {
   let title = context.params.id.replace(/-/g, " ").split(" ")
-  console.log("title", title)
   title = title.map(w => w.charAt(0).toUpperCase() + w.substring(1)).join(' ')
 
   const filter = tokenize(context.params.id)
   const books = getLists(filter)
-  console.log("props", context.params.id, filter, books)
   return { props: { books, title } }
 }
 
@@ -99,7 +97,7 @@ function generateAllPaths() {
 export const getStaticPaths = async () => {
   const ids = generateAllPaths()
   const paths = ids.map(id => ({ params: { id: id.toString() } }))
-  console.log("paths are", paths);
+  console.log("generating paths", paths);
   return {
     paths, fallback: false
   }
