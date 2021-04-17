@@ -2,7 +2,7 @@ import Link from 'next/Link'
 import { getLists } from '../../api/lists/[id]'
 import Image from 'next/image'
 
-const book = ({ books, title, updatedAt }) => {
+const book = ({ books, title }) => {
   return (<>
     <header className="pt-6 xl:pb-10">
       <dd className="text-base leading-6 font-medium text-gray-500"><time dateTime="2021-02-16T16:05:00.000Z">Tuesday, Febuary 16, 2021</time></dd>
@@ -26,7 +26,7 @@ const book = ({ books, title, updatedAt }) => {
                     <div className="my-4">
                       <div className="space-y-2">
                         <div className="bg-gray-100 h-96 flex items-center justify-center">
-                          <Image
+                          <img
                             className="rounded-lg"
                             src={thumbnail}
                             alt={`Book cover thumbnail for ${title} by ${authors}`}
@@ -38,10 +38,10 @@ const book = ({ books, title, updatedAt }) => {
                         <p className="text-gray-500">
                           {description}
                         </p></div>
-                      <p><a
+                      <p><Link
                         className="transition-colors duration-200 hover:text-gray-800"
                         href={book.url}
-                      >View on Google Books <span aria-hidden="true" className="mr-2">→</span></a></p>
+                      ><a>View on Google Books <span aria-hidden="true" className="mr-2">→</span></a></Link></p>
                     </div>
                   </div>
                 </div>
