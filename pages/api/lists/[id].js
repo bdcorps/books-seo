@@ -1,7 +1,7 @@
 import { books } from '../../../data'
 
 export default function handler({ query: { id } }, res) {
-  const filtered = getSongs(null)
+  const filtered = getLists(null)
   if (filtered.length > 0) {
     res.status(200).json(filtered[0])
   } else {
@@ -10,6 +10,6 @@ export default function handler({ query: { id } }, res) {
 }
 
 export const getLists = (filter) => {
-  const filtered = books.filter(article => article.decade === filter.decade && article.location === filter.location)
+  const filtered = books.filter(article => article.tag === filter.tag)
   return filtered
 }
